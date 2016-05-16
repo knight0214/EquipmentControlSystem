@@ -1,0 +1,48 @@
+<div>
+    <h4>请确认该设备的借出信息</h4>
+    <form class="form-horizontal" ng-submit="borrowTheEquip(equip)">
+    <table class="table">
+        <tr>
+            <td>设备编号</td>
+            <td>{{equip.eid}}</td>
+        </tr>
+        <tr>
+            <td>设备名称</td>
+            <td>{{equip.ename}}</td>
+        </tr>
+        <tr>
+            <td>
+                <label for="uname">借出人</label>
+            </td>
+            <td>
+                <select class="form-control" name="uname" id="uname" ng-model="equip.uname" ng-change="contentCheck()">
+                    <option value selected>请选择借出人</option>
+                    <option ng-repeat="user in userList track by $index" value={{userList[$index].uname}}>{{userList[$index].uname}}</option>
+                </select>
+                 <p class="dangerText text-danger bg-danger" ng-if="warnMsg.unameMsg.length>0">{{warnMsg.unameMsg}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="borrowDate" >借出时间</label>
+            </td>
+            <td>
+                <input class="form-control" type="text" name="borrowDate" id="borrowDate" ui-date="dateOptions" ng-model="equip.borrowDate" ng-change="contentCheck()"/>
+                 <p class="dangerText text-danger bg-danger" ng-if="warnMsg.borrowDateMsg.length>0">{{warnMsg.borrowDateMsg}}</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="dueDate">归还时间</label>
+            </td>
+            <td>
+                <input class="form-control" type="text" name="dueDate" id="dueDate" ui-date="dateOptions" ng-model="equip.dueDate" ng-change="contentCheck()"/>
+                 <p class="dangerText text-danger bg-danger" ng-if="warnMsg.dueDateMsg.length>0">{{warnMsg.dueDateMsg}}</p>
+            </td>
+        </tr>
+    </table>
+    <input class="btn btn-danger btn-sm" type="submit" value="确定" />
+    <!-- <button class="btn btn-danger btn-sm" ng-click="borrowEquip(equip)">确定</button> -->
+    <button class="btn btn-info btn-sm" ng-click="turnBack()">返回</button>
+    </form>
+</div>

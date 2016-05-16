@@ -1,0 +1,41 @@
+<aside class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+    <div class="wrap-title">
+        <em>{{title}}</em>
+    </div>
+</aside>
+<aside class="col-lg-10 col-md-12 col-sm-12 col-xs-12 table-wrap" ng-if="equipList.length==0">
+    <h2>没有设备借出</h2>
+</aside>
+
+<aside class="col-lg-10 col-md-12 col-sm-12 col-xs-12 table-wrap" ng-if="equipList.length>0">
+    
+    <table class="table table-striped table-condensed news-table" >
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>设备编号</th>
+                <th>设备类型</th>
+                <th>设备名称</th>
+                <th>设备状态</th>
+                <th>借出日期</th>
+                <th>归还日期</th>
+                <th>借出人</th>
+                <th colspan="2">操作</th>
+            </tr>
+
+        </thead>
+        <tr ng-repeat="equip in equipList track by $index">
+            <td>{{$index + 1+(paginationConf.currentPage - 1)*paginationConf.itemsPerPage}}</td>
+            <td>{{equipList[$index].eid}}</td>
+            <td>{{equipList[$index].etype}}</td>
+            <td>{{equipList[$index].ename}}</td>
+            <td>{{equipList[$index].estate}}</td>
+            <td>{{equipList[$index].borrowDate| date:'yyyy-MM-dd'}}</td>
+            <td>{{equipList[$index].dueDate| date:'yyyy-MM-dd'}}</td>
+            <td>{{equipList[$index].uname}}</td>
+            <td colspan="2"><button class="btn btn-info btn-xs" ng-click = 'emailToReturn(equipList[$index])' >通知归还</button>
+            <button class="btn btn-success btn-xs" ng-click = 'returnEquip(equipList[$index])'>确认归还</button></td>
+        </tr>
+    </table>
+    <tm-pagination conf="paginationConf"></tm-pagination>
+</aside>

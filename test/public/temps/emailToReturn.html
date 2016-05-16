@@ -1,0 +1,32 @@
+<div>
+    <h4>是否确认通知该用户</h4>
+    <table class="table">
+        <tr>
+            <td>设备编号</td>
+            <td>{{equip.eid}}</td>
+        </tr>
+        <tr>
+            <td>设备名称</td>
+            <td>{{equip.ename}}</td>
+        </tr>
+        <tr>
+            <td>借出人</td>
+            <td>{{equip.uname}}</td>
+        </tr>
+         <tr>
+            <td>联系方式</td>
+            <td>{{equip.uemail}}</td>
+        </tr>
+        <tr>
+            <td>借出时间</td>
+            <td>{{equip.borrowDate| date:'yyyy-MM-dd'}}</td>
+        </tr>
+        <tr>
+            <td>应归还时间</td>
+            <td>{{equip.dueDate | date:'yyyy-MM-dd'}}</td>
+        </tr>
+    </table>
+    <button class="btn btn-success btn-sm" ng-click="emailTo(equip)">确认通知用户</button>
+    <!-- <button class="btn btn-success btn-sm" ng-click="returnAllEquip(equip.uname)">该用户已归还所有借出的设备</button> -->
+    <button class="btn btn-info btn-sm" ng-click ="closeThisDialog()">返回</button>
+</div>

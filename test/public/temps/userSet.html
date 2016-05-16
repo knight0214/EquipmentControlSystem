@@ -1,0 +1,28 @@
+<aside class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+    <div class="wrap-title">
+        <em>{{title}}</em>
+        <button class="btn btn-info btn-xs add-btn control-btn" ng-click="setByUser()">用户信息修改</button>
+    </div>
+</aside>
+<aside class="col-lg-10 col-md-12 col-sm-12 col-xs-12 table-wrap">
+    <table class="table table-striped table-condensed news-table">
+    <thead>
+        <tr>
+            <th>项目</th>
+            <th>用户信息</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>用户名</td>
+        <td>{{user.uname}}</td>
+    </tr>
+     <tr>
+        <td>用户密码</td>
+        <td>{{user.pwd}}</td>
+    </tr>
+     <tr>
+        <td>用户邮箱</td>
+        <td>{{user.email}}</td>
+    </tr>
+    </table>
+</aside>

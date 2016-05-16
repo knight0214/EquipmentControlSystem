@@ -1,0 +1,50 @@
+<div>
+    <h4>请添加用户信息</h4>
+    <form class="form-horizontal" ng-submit="userSubmit(user,ajaxUrl.addUrl)">
+        <table class="table">
+            <tr>
+                <td>
+                    <label for="uname">用户名称</label>
+                </td>
+                <td>
+                    <input class="form-control" type="text" id="uname" ng-model="user.uname" ng-change="unameCheck()" placeholder="请输入用户姓名"/>
+                    <p class="dangerText text-danger bg-danger" ng-if="warnMsg.unameMsg.length>0">{{warnMsg.unameMsg}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="pwd">用户密码</label>
+                </td>
+                <td>
+                    <input class="form-control" type="password" id="pwd" ng-model="user.pwd" placeholder="请输入用户密码" ng-change="contentCheck()"/>
+                    <p class="dangerText text-danger bg-danger" ng-if="warnMsg.pwdMsg.length>0">{{warnMsg.pwdMsg}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="email">电子邮箱</label>
+                </td>
+                <td>
+                    <input class="form-control" type="email" id="email" ng-model="user.email" placeholder="请输入用户电邮" ng-change="contentCheck()"/>
+                    <p class="dangerText text-danger bg-danger" ng-if="warnMsg.emailMsg.length>0">{{warnMsg.emailMsg}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="admin">权限身份</label>
+                </td>
+                <td>
+                <select class="form-control" id="admin" ng-model='user.admin' ng-change="contentCheck()">
+                     <option value selected>请选择用户权限身份</option>
+                            <option value='0'>一般用户</option>
+                            <option value='1'>管理员</option>
+                </select>
+                <p class="dangerText text-danger bg-danger" ng-if="warnMsg.adminMsg.length>0">{{warnMsg.adminMsg}}</p>
+                </td>
+            </tr>
+        </table>
+        <input class="btn btn-success btn-sm" ng-if="warnMsg.unameMsg==''" type="submit"  value="提交" />
+        <input class="btn btn-warning btn-sm" type="reset" value="重置" />
+        <button class="btn btn-info btn-sm" ng-click="turnBack()">返回</button>
+    </form>
+</div>

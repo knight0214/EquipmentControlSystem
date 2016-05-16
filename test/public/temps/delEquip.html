@@ -1,0 +1,20 @@
+<div>
+    <h4>是否要删除该设备</h4>
+    <table class="table">
+        <tr>
+            <td>设备编号</td>
+            <td>{{equip.eid}}</td>
+        </tr>
+        <tr>
+            <td>设备名称</td>
+            <td>{{equip.ename}}</td>
+        </tr>
+        <tr>
+            <td>设备状态</td>
+            <td>{{equip.estate}}</td>
+        </tr>
+
+    </table>
+    <button class="btn btn-danger btn-sm" ng-click="delTheEquip(equip)">确定</button>
+    <button class="btn btn-info btn-sm" ng-click ="turnBack()">返回</button>
+</div>

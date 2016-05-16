@@ -1,0 +1,31 @@
+<aside class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+    <div class="wrap-title">
+        <em>{{title}}</em>
+        <button class="btn btn-success btn-xs add-btn control-btn" ng-click="addUser()">新增用户</button>
+    </div>
+</aside>
+<aside class="col-lg-10 col-md-12 col-sm-12 col-xs-12 table-wrap">
+   <table class="table table-striped table-condensed news-table">
+    <thead>
+        <tr>
+            <th>编号</th>
+            <th>用户名</th>
+            <th>密码</th>
+            <th>邮箱</th>
+            <th>权限身份</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tr ng-repeat="user in userList track by $index">
+        <td>{{$index + 1+(paginationConf.currentPage - 1)*paginationConf.itemsPerPage}}</td>
+        <td>{{userList[$index].uname}}</td>
+        <td>{{userList[$index].pwd}}</td>
+        <td>{{userList[$index].email}}</td>
+        <td ng-if="userList[$index].admin==='0'">一般用户</td>
+        <td ng-if="userList[$index].admin==='1'">管理员</td>
+        <td><button class="btn btn-info btn-xs edit-btn control-btn" ng-click='updateUser(userList[$index])' ng-if='userList[$index].uname!==userCheck'>编辑</button>
+            <button class="btn btn-danger btn-xs del-btn control-btn" ng-click='deleUser(userList[$index])' ng-if='userList[$index].uname!==userCheck'>删除</button></td>
+    </tr>
+</table> 
+<tm-pagination conf="paginationConf"></tm-pagination>
+</aside>

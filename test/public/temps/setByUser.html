@@ -1,0 +1,33 @@
+<div>
+<h4>用户信息设定</h4>
+<form class="form-horizontal" ng-submit="userUpdate(user)">
+        <table class="table">
+            <tr>
+                <td>
+                    <label for="uname">用户名称</label>
+                </td>
+                <td>{{user.uname}}</td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="pwd">用户密码</label>
+                </td>
+                <td>
+                    <input class="form-control" type="text" id="pwd" ng-model="user.pwd" placeholder="请输入用户密码" ng-change="contentCheck()" />
+                    <p class="dangerText text-danger bg-danger" ng-if="warnMsg.pwdMsg.length>0">{{warnMsg.pwdMsg}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="email">电子邮箱</label>
+                </td>
+                <td>
+                    <input class="form-control" type="email" id="email" ng-model="user.email" placeholder="请输入用户电邮"  ng-change="contentCheck()"/>
+                     <p class="dangerText text-danger bg-danger" ng-if="warnMsg.emailMsg.length>0">{{warnMsg.emailMsg}}</p>
+                </td>
+            </tr>
+        </table>
+        <input class="btn btn-success btn-sm" type="submit"  value="提交" />
+        <button class="btn btn-info btn-sm" ng-click='turnBack()'>返回</button>
+    </form>
+</div>

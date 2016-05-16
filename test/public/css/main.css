@@ -1,0 +1,202 @@
+/*基本属性*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 10px;
+}
+
+body {
+    font-family: "微软雅黑";
+}
+
+ul {
+    list-style: none;
+}
+
+.con {
+    width: 100%;
+    min-width: 800px;
+    background: #2C89CF;
+    overflow-y: hidden;
+}
+
+
+/*header部分*/
+
+.header-wrap {
+    margin-right: 0;
+}
+
+.nav-wrap {
+    margin-bottom: 0;
+    z-index: 100;
+    border-radius: 0px;
+    background: -webkit-linear-gradient(top, #333, #2C89CF);
+    background: -moz-linear-gradient(top, #333, #2C89CF);
+    background: -ms-linear-gradient(top, #333, #2C89CF);
+}
+
+
+/*article部分*/
+
+article {
+    z-index: 0;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.content {
+    margin: 0;
+}
+
+.nav-title {
+    font-size: 2.8rem;
+    color: #fff;
+    margin: 0 0;
+}
+
+.nav-content {
+    font-size: 2rem;
+}
+
+.menu-small {
+    z-index: 2;
+    margin-top: 10px;
+}
+
+.menu-small-select {
+    width: 150px;
+    margin-top: 13px;
+    margin-bottom: -12px;
+    border-radius: 5px;
+    background-color: #1D82BF;
+    color: #fff;
+}
+
+.menu {
+    font-size: 2rem;
+    // box-shadow: 1px 3px 6px 1px #64ACD0;
+    // margin-bottom: -9999px;
+    // padding-bottom: 9999px;
+    // overflow: hidden;
+}
+
+.menu li {
+    padding: 10px;
+}
+
+.wrap-title {
+    min-width: 254px;
+    height: 36px;
+    margin-top: 10px;
+    line-height: 33px;
+    border-radius: 36px;
+    background: #1D82BF;
+    color: #fff;
+    font-size: 1.9rem;
+}
+
+.wrap-title em {
+    margin: 0 20px;
+    font-style: normal;
+}
+
+.table-wrap {
+    // overflow-x: auto;
+}
+
+.table-con {
+    min-width: 600px;
+}
+.dangerText {
+    margin: 0 0;
+}
+.edit-con,.add-con{
+    display: none;
+    position: relative;
+    top:0;
+    left: 0;
+    z-index: 900;
+    margin:0 15px; 
+    background: #D5E7F5;
+}
+.pro-con{
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    top:0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,.8);
+}
+.pro-box{
+    position: fixed;
+    top:50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -60px;
+    width: 300px;
+    height: 120px;
+    background:#1D82BF; 
+    border-radius: 5px;
+    text-align: center;
+}
+.pro-box p{
+    padding-top: 30px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #fff;
+}
+.pro-box button{
+    margin-right:10px; 
+}
+
+@media screen and (max-device-height:768px) {
+    .table-con {
+        height: window.inner-height;
+    }
+}
+
+form {
+    z-index: 0;
+}
+
+table {
+    font-size: 1.5rem;
+    // table-layout:fixed;
+    // min-width: 800px;
+}
+
+.news-table td {
+    height: 20px;
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.newstitle {
+    width: 200px;
+    height: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+#newstitle{
+    min-width: 60%;
+}
+.add-table{
+    width: 100%;
+}
+.td-title{
+    width:150px;
+}
+.td-cotent{
+    width: 70%;
+}
+.pagin-wrap {
+    font-size: 1.5rem;
+}

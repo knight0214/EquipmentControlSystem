@@ -1,0 +1,20 @@
+<div>
+    <h4>是否要删除该用户</h4>
+    <table class="table">
+        <tr>
+            <td>用户名称</td>
+            <td>{{user.uname}}</td>
+        </tr>
+        <tr>
+            <td>用户密码</td>
+            <td>{{user.pwd}}</td>
+        </tr>
+        <tr>
+            <td>用户邮箱</td>
+            <td>{{user.email}}</td>
+        </tr>
+
+    </table>
+    <button class="btn btn-danger btn-sm" ng-click="userDelete(user)">确定</button>
+    <button class="btn btn-info btn-sm" ng-click ="turnBack()">返回</button>
+</div>

@@ -1,0 +1,80 @@
+<div>
+    <h4>请编辑设备信息</h4>
+    <form class="form-horizontal" ng-submit="equipSubmit(equip,ajaxUrl.updateUrl)">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>项目</th>
+                    <th>数据</th>
+                </tr>
+            </thead>
+            <tbody class="form-group">
+               <tr>
+                    <td class="td-title">
+                        <label class="control-label" for="etype">设备类型</label>
+                    </td>
+                    <td class="td-content">{{equip.etype}}</td>
+                </tr>
+                <tr>
+                    <td class="td-title">
+                        <label class="control-label" for="eid">设备编号</label>
+                    </td>
+                    <td class="td-content">{{equip.eid}}</td>
+                </tr>
+                <tr>
+                    <td class="td-title">
+                        <label class="control-label" for="ename">设备名称</label>
+                    </td>
+                    <td class="td-content">
+                        <input class="form-control" type="text" name="ename" id="ename" ng-model="equip.ename" placeholder="请输入设备名称" ng-change="contentCheck()"/>
+                        <p class="dangerText text-danger bg-danger" ng-if="warnMsg.enameMsg.length>0">{{warnMsg.enameMsg}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-title">
+                        <label class="control-label" for="estate">设备状态</label>
+                    </td>
+                    <td class="td-content">
+                        <select class="form-control" name="estate" id="estate" ng-model="equip.estate" ng-change="contentCheck()">
+                            <option value selected>请选择设备状态</option>
+                            <option value='可使用'>可使用</option>
+                            <option value='已借出'>已借出</option>
+                            <option value='需维护'>需维护</option>
+                            <option value='已报废'>已报废</option>
+                        </select>
+                        <p class="dangerText text-danger bg-danger" ng-if="warnMsg.estateMsg.length>0">{{warnMsg.estateMsg}}</p>
+                    </td>
+                </tr>
+                 <tr ng-if="equip.estate=='已借出'">
+                    <td class="td-title">
+                        <label class="control-label" for="uname">借出人</label>
+                    </td>
+                    <td class="td-content">
+                        <select class="form-control" name="uname" id="uname" ng-model="equip.uname">
+                            <option value selected>请选择借出人</option>
+                            <option ng-repeat="user in userList track by $index" value={{userList[$index].uname}}>{{userList[$index].uname}}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr ng-if="equip.estate=='已借出'">
+                    <td class="td-title">
+                        <label class="control-label" for="borrowDate">借出时间</label>
+                    </td>
+                    <td class="td-content">
+                        <input class="form-control" type="text" name="borrowDate" id="borrowDate" ui-date="dateOptions" ng-model="equip.borrowDate"/>
+                    </td>
+                </tr>
+                <tr ng-if="equip.estate=='已借出'">
+                    <td class="td-title">
+                        <label class="control-label" for="dueDate">归还时间</label>
+                    </td>
+                    <td class="td-content">
+                        <input class="form-control" type="text" name="dueDate" id="dueDate" ui-date="dateOptions" ng-model="equip.dueDate" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <input class="btn btn-success btn-sm" type="submit" value="提交" />
+        <button class="btn btn-info btn-sm" ng-click="turnBack()">返回</button>
+    </form>
+</div>

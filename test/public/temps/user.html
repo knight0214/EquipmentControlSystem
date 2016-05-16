@@ -1,0 +1,40 @@
+<header class="row header-wrap">
+    <!--top nav start-->
+    <nav class="navbar navbar-inverse nav-wrap col-xs-12">
+        <p class="navbar-header nav-title col-xs-12 col-sm-10 col-md-5 col-lg-3 ">企业研发设备工具管理系统</p>
+        <p class="navbar-text  nav-content col-xs-12 col-sm-4 col-md-2 col-lg-4 ">欢迎:{{uname}}登录本系统</p>
+        <div class="navbar-text">
+            <button class="btn btn-info btn-logout" ng-click='logout()'>退出登录</button>
+        </div>
+    </nav>
+    <!--end top nav-->
+</header>
+<article class="row content">
+    <div class="container-fluit">
+        <!--nav for samllscreen-->
+        <aside class="menu-small col-xs-12  col-md-12 hidden-lg ">
+            <nav>
+                <ul class="nav nav-pills">
+                    <li ui-sref-active="active"><a ui-sref=".equipCanUse">可用设备信息总览</a></li>
+                    <li ui-sref-active="active"><a ui-sref=".equipByBorrow">本人借出设备管理</a></li>
+                    <li ui-sref-active="active"><a ui-sref=".userSet">用户设置</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <!--left nav start-->
+        <aside class="menu col-lg-2  hidden-md hidden-sm hidden-xs">
+            <nav>
+                <ul class="nav nav-pills nav-stacked">
+                    <li ui-sref-active="active"><a ui-sref=".equipCanUse">可用设备信息总览</a></li>
+                    <li ui-sref-active="active"><a ui-sref=".equipByBorrow">本人借出设备管理</a></li>
+                    <li ui-sref-active="active"><a ui-sref=".userSet">用户设置</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <!--end left nav-->
+        <!--right content start-->
+        <div ui-view></div>
+        <!--end right cotent-->
+        <!--container in article-->
+    </div>
+</article>

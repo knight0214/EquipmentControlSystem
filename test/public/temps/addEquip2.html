@@ -1,0 +1,98 @@
+<aside class="col-md-10 col-sm-12 col-xs-12">
+    <div class="wrap-title">
+        <em ng-bind="title"></em>
+    </div>
+</aside>
+<aside class="col-md-10 col-sm-12 table-wrap">
+    <form class="form-horizontal" ng-submit="equipSubmit(equip)">
+        <table class="table table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>项目</th>
+                    <th>数据</th>
+                </tr>
+            </thead>
+            <tbody class="form-group">
+                <tr>
+                    <td class="td-title">
+                        <label class="control-label" for="etype">设备类型</label>
+                    </td>
+                    <td class="td-content">
+                        <select class="form-control" name="etype" id="etype" ng-model="equip.etype" required="requited">
+                            <option value selected>请选择设备类型</option>
+                            <option value='稳压电源'>稳压电源(编号dy开头)</option>
+                            <option value='外电压调整'>外电压调整(编号ty开头)</option>
+                            <option value='光谱分析'>光谱分析(编号gp开头)</option>
+                            <option value='光强测量'>光强测量(编号lum开头)</option>
+                            <option value='电量测试'>电量测试(编号pm开头)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-title">
+                        <label class="control-label" for="eid">设备编号</label>
+                    </td>
+                    <td class="td-content">
+                        <input class="form-control" type="text" name="eid" id="eid" ng-model="equip.eid" value="equip.eid" ng-change="eidCheck()" placeholder="请输入设备编号" required="requited"/>
+                        <p ng-if="errMsg.length>0">{{errMsg}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-title">
+                        <label class="control-label" for="ename">设备名称</label>
+                    </td>
+                    <td class="td-content">
+                        <input class="form-control" type="text" name="ename" id="ename" ng-model="equip.ename" placeholder="请输入设备名称" required="requited" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-title">
+                        <label class="control-label" for="estate">设备状态</label>
+                    </td>
+                    <td class="td-content">
+                        <select class="form-control" name="estate" id="estate" ng-model="equip.estate" required="requited">
+                            <option value selected>请选择设备状态</option>
+                            <option value='可使用'>可使用</option>
+                            <option value='已借出'>已借出</option>
+                            <option value='需维护'>需维护</option>
+                            <option value='已报废'>已报废</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr ng-if="equip.estate=='已借出'">
+                    <td class="td-title">
+                        <label class="control-label" for="borrowDate">借出时间</label>
+                    </td>
+                    <td class="td-content">
+                        <input class="form-control" type="text" name="borrowDate" id="borrowDate" ui-date="dateOptions" ng-model="equip.borrowDate"/>
+                    </td>
+                </tr>
+                <tr ng-if="equip.estate=='已借出'">
+                    <td class="td-title">
+                        <label class="control-label" for="dueDate">归还时间</label>
+                    </td>
+                    <td class="td-content">
+                        <input class="form-control" type="text" name="dueDate" id="dueDate" ui-date="dateOptions" ng-model="equip.dueDate" />
+                    </td>
+                </tr>
+                <tr ng-if="equip.estate=='已借出'">
+                    <td class="td-title">
+                        <label class="control-label" for="uname">借出人</label>
+                    </td>
+                    <td class="td-content">
+                        <select class="form-control" name="uname" id="uname" ng-model="equip.uname">
+                            <option value selected>请选择借出人</option>
+                            <option ng-repeat="user in userList track by $index" value={{userList[$index].uname}}>{{userList[$index].uname}}</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input class="btn btn-success btn-sm" type="submit" ng-if="errMsg==''" value="提交" />
+                        <input class="btn btn-warning btn-sm" type="reset" value="重置" />
+                        <a href="#/main/equipList" class="btn btn-info btn-sm back-btn">返回</a>
+                    </td>
+                </tr>
+        </table>
+    </form>
+</aside>

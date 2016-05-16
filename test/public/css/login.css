@@ -1,0 +1,57 @@
+/*stylesheet for loginpage.html*/
+
+
+/*基本属性*/
+
+body {
+    font-size: .625rem;
+    font-family: "微软雅黑";
+    color: #fff;
+}
+
+.bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: -webkit-linear-gradient(top, #333, #2C89CF, #333);
+    background: -moz-linear-gradient(top, #333, #2C89CF, #333);
+    background: -ms-linear-gradient(top, #333, #2C89CF, #333);
+}
+
+
+/*article 部分*/
+
+article {
+    position: absolute;
+    width: 600px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -300px;
+    background: #558DDC url(/img/bg.jpg) no-repeat 1px -4px;
+    background-size: 100%;
+    border: 9px solid #81BBE2;
+    border-radius: 46px;
+    z-index: 2;
+}
+
+header {
+    width: 100%;
+    height: 25px;
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 39px;
+}
+
+form {
+    width: 60%;
+    height: 200px;
+    margin: 43px auto 0;
+    font-size: 2.5em;
+}
+
+footer {
+    text-align: center;
+    font-size: 2em;
+}
